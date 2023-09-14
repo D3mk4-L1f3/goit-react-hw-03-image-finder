@@ -6,7 +6,7 @@ import { Loader } from './loader/Loader';
 import { Searchbar } from './searcher/Searcher';
 import { ImageGallery } from './img-gallery/ImgGallery';
 import { Button } from './button/Button';
-import { getPhoto } from './api/PixabayApi';
+import { getPhoto } from '../api/PixabayApi';
 import { MainApp } from './component-style/app.styled';
 
 export class App extends Component {

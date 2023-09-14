@@ -1,27 +1,22 @@
-import { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
 import {
   GalleryItem,
   GalleryItemImg,
 } from '../component-style/imgGallery.styled';
 
-export class ImageGaleryItem extends Component {
-  render() {
-    const { webformatURL, largeImageURL, tags } = this.props;
-
-    return (
-      <GalleryItem>
-        <GalleryItemImg
-          src={webformatURL}
-          alt={tags}
-          width="100px"
-          data-large={largeImageURL}
-          loading="lazy"
-        />
-      </GalleryItem>
-    );
-  }
+export default function ImageGaleryItem({ webformatURL, largeImageURL, tags }) {
+  return (
+    <GalleryItem>
+      <GalleryItemImg
+        src={webformatURL}
+        alt={tags}
+        width="100px"
+        data-large={largeImageURL}
+        loading="lazy"
+      />
+    </GalleryItem>
+  );
 }
 
 ImageGaleryItem.propTypes = {
