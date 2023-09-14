@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Component } from 'react';
+import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { customStyles } from '../component-style/modal.styled';
 
@@ -7,23 +7,27 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 ReactModal.setAppElement('#root');
 
-export class Modal extends Component {
-  render() {
-    const { isModalOpen, onCloseModal, largeImageURL, tags } = this.props;
-    return (
-      <>
-        <ReactModal
-          style={customStyles}
-          isOpen={isModalOpen}
-          onRequestClose={onCloseModal}
-          onAfterOpen={disableBodyScroll}
-          onAfterClose={clearAllBodyScrollLocks}
-        >
-          <img src={largeImageURL} alt={tags} width="800px" />
-        </ReactModal>
-      </>
-    );
-  }
+export default function Modal({
+  isModalOpen,
+  onCloseModal,
+  largeImageURL,
+  tags,
+}) {
+  useEffect(() => {
+    isModalOpen ? disableBodyScroll(document.body) : clearAllBodyScrollLocks();
+  }, [isModalOpen]);
+
+  return (
+    <>
+      <ReactModal
+        style={customStyles}
+        isOpen={isModalOpen}
+        onRequestClose={onCloseModal}
+      >
+        <img src={largeImageURL} alt={tags} width="800px" />
+      </ReactModal>
+    </>
+  );
 }
 
 Modal.propTypes = {

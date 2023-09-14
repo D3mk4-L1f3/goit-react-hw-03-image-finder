@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import ImageGaleryItem from '../img-item/GalleryItem';
-import { Modal } from 'components/modal/Modal';
+import Modal from 'components/modal/Modal';
 import { ImageGalleryConatiner } from '../component-style/imgGallery.styled';
 
 export class ImageGallery extends Component {
